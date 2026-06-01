@@ -1,6 +1,5 @@
 const CACHE_NAME = "gfitapp-v1";
 
-// Archivos que se guardan en caché (IMPORTANTE: rutas relativas)
 const urlsToCache = [
     "./",
     "./index.html",
@@ -14,43 +13,33 @@ const urlsToCache = [
     "./Gfit_image_icon.png"
 ];
 
-// Instalación del service worker
-self.addEventListener("install", event => {
-    console.log("Service Worker instalado");
 
+self.addEventListener("install", event => {
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache => {
-            console.log("Archivos cacheados");
             return cache.addAll(urlsToCache);
         })
     );
 });
 
-// Activación del service worker
 self.addEventListener("activate", event => {
-    console.log("Service Worker activado");
-
     event.waitUntil(
-        caches.keys().then(keys => {
-            return Promise.all(
+        caches.keys().then(keys =>
+            Promise.all(
                 keys.map(key => {
                     if (key !== CACHE_NAME) {
                         return caches.delete(key);
                     }
                 })
-            );
-        })
+            )
+        )
     );
 });
 
-// Fetch: soporte offline
 self.addEventListener("fetch", event => {
     event.respondWith(
         caches.match(event.request).then(response => {
-            if (response) {
-                return response;
-            }
-            return fetch(event.request);
+            return response || fetch(event.request);
         })
     );
 });
