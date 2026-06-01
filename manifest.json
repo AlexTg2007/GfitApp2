@@ -18,13 +18,7 @@
             "src": "./image_Gfit_512.png",
             "sizes": "512x512",
             "type": "image/png"
-        },
-        {
-            "src": "./image_Gfit_180.png",
-            "sizes": "180x180",
-            "type": "image/png"
         }
-        
 
     ]
 }
