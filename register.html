@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro - GfitApp</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5; /* opcional */
+        }
+
+        main {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<main>
+
+    <section class="section-block section-light">
+
+        <div class="container">
+
+            <div class="burbuja form-max">
+
+                <h1 class="titulo">Registro de socio</h1>
+                <p class="subtitulo">Crea tu cuenta en GfitApp</p>
+
+                <form method="POST" action="/register">
+
+                    <p>Nombre</p>
+                    <input type="text" name="nombre_socio" required>
+
+                    <p>Apellidos</p>
+                    <input type="text" name="apellidos_socio" required>
+
+                    <p>Email</p>
+                    <input type="email" name="email_socio" required>
+
+                    <p>Teléfono</p>
+                    <input type="text" name="telefono_socio">
+
+                    <p>Usuario</p>
+                    <input type="text" name="usuario" required>
+
+                    <p>Contraseña</p>
+                    <input type="password" name="contraseña" required>
+
+                    <p>Rol</p>
+                    <select name="rol">
+                        <option value="user">Usuario</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+
+                    <p>Activo</p>
+                    <select name="activo">
+                        <option value="1">Activo</option>
+                        <option value="0">Inactivo</option>
+                    </select>
+
+                    <br><br>
+
+                    <button class="btn-dark" type="submit">
+                        Registrarse
+                    </button>
+
+                </form>
+
+                <br>
+
+                <a class="link-negro" href="/login">
+                    ¿Ya tienes cuenta? Inicia sesión
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>

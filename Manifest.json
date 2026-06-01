@@ -1,0 +1,30 @@
+{
+    "name": "GfitApp",
+    "short_name":"Gfit",
+    "theme_color": "#000",
+    "background_color": "#000",
+    "display": "standalone",
+    "orientation": "any",
+    "scope":"/",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "./Gfit_app_image.png",
+            "sizes": "192x192",
+            "type": "image/png"
+            
+        },
+        {
+            "src": "./Gfit_app_image.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src":"./Gfit_app_image.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+
+    ]
+}
+
