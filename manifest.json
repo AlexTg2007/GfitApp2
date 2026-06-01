@@ -9,14 +9,19 @@
     "start_url": "./",
     "icons": [
         {
-            "src": "./Gfit_image_icon.png",
+            "src": "./image_Gfit_192.png",
             "sizes": "192x192",
             "type": "image/png"
             
         },
         {
-            "src": "./Gfit_image_icon.png",
+            "src": "./image_Gfit_512.png",
             "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "./image_Gfit_180.png",
+            "sizes": "180x180",
             "type": "image/png"
         }
         
