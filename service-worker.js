@@ -1,36 +1,32 @@
-const CACHE_NAME ="gfitapp-v1";
+const CACHE_NAME = "gfitapp-v1";
 
-//Archivos que se guardan el el caché
-
+// Archivos que se guardan en caché (IMPORTANTE: rutas relativas)
 const urlsToCache = [
-    "/",
-    "/index.html",
-    "/perfil.html",
-     "/reservas.html",
-    "/historial.html",
-    "/clases.html",
-    "/styles.css",
-    "/script.js",
-    "/manifest.json",
-    "/Gfit_app_image.png"
+    "./",
+    "./index.html",
+    "./perfil.html",
+    "./reservas.html",
+    "./historial.html",
+    "./clases.html",
+    "./styles.css",
+    "./script.js",
+    "./manifest.json",
+    "./Gfit_image_icon.png"
 ];
 
-//Instalación del service worker
-
+// Instalación del service worker
 self.addEventListener("install", event => {
-    console.log ("Service Worker instalado");
-    
+    console.log("Service Worker instalado");
+
     event.waitUntil(
-        caches.open(CACHE_NAME)
-        .then(cache=> {
+        caches.open(CACHE_NAME).then(cache => {
             console.log("Archivos cacheados");
             return cache.addAll(urlsToCache);
         })
     );
 });
 
-//Activación del service worker
-
+// Activación del service worker
 self.addEventListener("activate", event => {
     console.log("Service Worker activado");
 
@@ -38,7 +34,7 @@ self.addEventListener("activate", event => {
         caches.keys().then(keys => {
             return Promise.all(
                 keys.map(key => {
-                    if (key!== CACHE_NAME){
+                    if (key !== CACHE_NAME) {
                         return caches.delete(key);
                     }
                 })
@@ -47,18 +43,14 @@ self.addEventListener("activate", event => {
     );
 });
 
-//Fetch: Soporte Offline
-
+// Fetch: soporte offline
 self.addEventListener("fetch", event => {
     event.respondWith(
-        caches.match(event.request)
-        .then(response => {
-
+        caches.match(event.request).then(response => {
             if (response) {
                 return response;
             }
-
             return fetch(event.request);
         })
-    )
-})
+    );
+});
