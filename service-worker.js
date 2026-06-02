@@ -10,7 +10,9 @@ const urlsToCache = [
     "./styles.css",
     "./script.js",
     "./manifest.json",
-    "./Gfit_image_icon.png"
+    "./image_Gfit_180.png",   
+    "./image_Gfit_192.png",
+    "./image_Gfit_512.png"
 ];
 
 
