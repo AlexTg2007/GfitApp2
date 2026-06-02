@@ -1,4 +1,4 @@
-const CACHE_NAME = "gfitapp-v1";
+const CACHE_NAME = "gfitapp-v2";
 
 const urlsToCache = [
     "./",
