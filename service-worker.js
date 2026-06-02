@@ -10,11 +10,10 @@ const urlsToCache = [
     "./styles.css",
     "./script.js",
     "./manifest.json",
-    "./image_Gfit_180.png",   
+    "./image_Gfit_180.png",
     "./image_Gfit_192.png",
     "./image_Gfit_512.png"
 ];
-
 
 self.addEventListener("install", event => {
     event.waitUntil(
