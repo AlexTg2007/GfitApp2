@@ -175,6 +175,11 @@ nav a:hover {
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.15);
   transition: box-shadow 0.4s ease;
+  margin-bottom: 25px; /* ← ESPACIADO AÑADIDO */
+}
+
+.section-block .col-md-6 > *:not(.img-wrapper) {
+  margin-top: 15px; /* ← ESPACIADO AÑADIDO */
 }
 
 .img-wrapper img {
@@ -276,6 +281,10 @@ footer {
 
   .panel-card {
     padding: 16px;
+  }
+
+  .img-wrapper {
+    margin-bottom: 30px; /* más aire en móvil */
   }
 
   /* MENÚ MÓVIL */
