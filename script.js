@@ -12,6 +12,7 @@ document.addEventListener("click", function(e) {
     }
 });
 
+
 /* ============================================
    Mostrar / ocultar spinner de carga
    ============================================ */
@@ -178,43 +179,65 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const usuario = datosGuardados || demo;
 
+    function ocultarFeedback() {
+    ["perfilSuccess", "perfilFeedback"].forEach(function(id) {
+        const el = document.getElementById(id);
+        if (el) el.style.display = "none";
+    });
+}
+
     function mostrarVista() {
-        document.getElementById("vistaNombre").textContent = usuario.nombre;
-        document.getElementById("vistaApellidos").textContent = usuario.apellidos;
-        document.getElementById("vistaEmail").textContent = usuario.email;
-        document.getElementById("vistaTelefono").textContent = usuario.telefono;
-        vista.style.display = "block";
-        edicion.style.display = "none";
-    }
+    document.getElementById("vistaNombre").textContent = usuario.nombre;
+    document.getElementById("vistaApellidos").textContent = usuario.apellidos;
+    document.getElementById("vistaEmail").textContent = usuario.email;
+    document.getElementById("vistaTelefono").textContent = usuario.telefono;
+    vista.style.display = "block";
+    edicion.style.display = "none";
+    ocultarFeedback();
+}       
 
     function mostrarEdicion() {
-        document.getElementById("editNombre").value = usuario.nombre;
-        document.getElementById("editApellidos").value = usuario.apellidos;
-        document.getElementById("editEmail").value = usuario.email;
-        document.getElementById("editTelefono").value = usuario.telefono;
-        vista.style.display = "none";
-        edicion.style.display = "block";
-    }
+    document.getElementById("editNombre").value = usuario.nombre;
+    document.getElementById("editApellidos").value = usuario.apellidos;
+    document.getElementById("editEmail").value = usuario.email;
+    document.getElementById("editTelefono").value = usuario.telefono;
+    vista.style.display = "none";
+    edicion.style.display = "block";
+    ocultarFeedback();
+}
+
 
     document.getElementById("btnEditar").addEventListener("click", mostrarEdicion);
     document.getElementById("btnCancelar").addEventListener("click", mostrarVista);
 
     document.getElementById("formPerfil").addEventListener("submit", function(e) {
-        e.preventDefault();
-        usuario.nombre = document.getElementById("editNombre").value.trim();
-        usuario.apellidos = document.getElementById("editApellidos").value.trim();
-        usuario.email = document.getElementById("editEmail").value.trim();
-        usuario.telefono = document.getElementById("editTelefono").value.trim();
-        localStorage.setItem("gfitapp_perfil", JSON.stringify(usuario));
-        mostrarVista();
-        const fb = document.getElementById("perfilFeedback");
-        fb.textContent = "Datos guardados correctamente.";
-        fb.style.display = "block";
-        setTimeout(function() { fb.style.display = "none"; }, 3000);
-    });
+    e.preventDefault();
+    ocultarFeedback();
+
+    usuario.nombre = document.getElementById("editNombre").value.trim();
+    usuario.apellidos = document.getElementById("editApellidos").value.trim();
+    usuario.email = document.getElementById("editEmail").value.trim();
+    usuario.telefono = document.getElementById("editTelefono").value.trim();
+
+    localStorage.setItem("gfitapp_perfil", JSON.stringify(usuario));
 
     mostrarVista();
-});
+
+    const success = document.getElementById("perfilSuccess");
+
+    if (success) {
+        success.textContent = "Datos guardados correctamente.";
+        success.style.display = "block";
+
+        setTimeout(function() {
+            success.style.display = "none";
+        }, 3000);
+    }
+}); // ← cierra addEventListener submit
+
+mostrarVista();
+
+}); // ← cierra DOMContentLoaded del perfil
 
 /* ============================================
    Mostrar historial de reservas
@@ -255,3 +278,40 @@ function pintarHistorial(lista) {
         contenedor.innerHTML += tarjeta;
     });
 }
+
+/* ============================================
+   Panel de socio
+   ============================================ */
+document.addEventListener("DOMContentLoaded", function() {
+    if (!document.getElementById("panelNombre")) return;
+
+    const perfil = JSON.parse(localStorage.getItem("gfitapp_perfil")) || {
+        nombre: "Ángel",
+        apellidos: "Albarracín",
+        email: "angel@example.com",
+        telefono: "612 345 678"
+    };
+
+    document.getElementById("panelNombre").textContent = perfil.nombre || "Socio";
+    document.getElementById("panelEmail").textContent = perfil.email || "—";
+    document.getElementById("panelTelefono").textContent = perfil.telefono || "—";
+
+    const reservas = JSON.parse(localStorage.getItem("gfitapp_reservas")) || [];
+    const count = reservas.length;
+
+    document.getElementById("panelResumenHistorial").textContent =
+        count > 0
+            ? count + " reserva" + (count > 1 ? "s" : "") +
+              " realizada" + (count > 1 ? "s" : "")
+            : "Aún sin reservas";
+
+    const meta = 12;
+
+    document.getElementById("progresoClases").textContent = count;
+    document.getElementById("progresoMeta").textContent = count + " / " + meta;
+
+    const pct = Math.min(100, Math.round((count / meta) * 100));
+
+    document.getElementById("barraProgreso").style.width = pct + "%";
+    document.getElementById("barraMeta").style.width = pct + "%";
+});

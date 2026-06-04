@@ -11,8 +11,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon original -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💪</text></svg>">
+
+    <!-- Favicons añadidos -->
+    <link rel="icon" href="https://framerusercontent.com/images/8bOBdZc7pcumKLrCZagKXJMKfrE.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="https://framerusercontent.com/images/e0eyT5DJoqOkBYq9GE3nO7YiA.png" media="(prefers-color-scheme: dark)">
 </head>
+
 <body>
 
     <nav>
@@ -25,6 +32,9 @@
     <main>
         <div class="burbuja mx-auto text-center">
             <h2 class="titulo">Tu Perfil</h2>
+
+            <!-- Subtítulo añadido -->
+            <p class="subtitulo">Gestiona tu información personal</p>
         </div>
 
         <!-- Vista de datos -->
@@ -33,12 +43,23 @@
                 <i class="bi bi-person-circle" style="font-size: 4rem; color: #B3FD14;"></i>
             </div>
             <h4 class="mb-3 text-center">Datos personales</h4>
+
+            <!-- Bloque estilizado añadido -->
+            <div style="border-left: 6px solid #B3FD14; padding: 20px 24px; background: linear-gradient(145deg, #ffffff, #f8f9fa); border-radius: 20px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); margin-bottom: 20px;">
+                <div class="d-flex justify-content-between py-2 border-bottom"><span class="fw-bold">Nombre</span><span id="vistaNombre">—</span></div>
+                <div class="d-flex justify-content-between py-2 border-bottom"><span class="fw-bold">Apellidos</span><span id="vistaApellidos">—</span></div>
+                <div class="d-flex justify-content-between py-2 border-bottom"><span class="fw-bold">Email</span><span id="vistaEmail">—</span></div>
+                <div class="d-flex justify-content-between py-2"><span class="fw-bold">Teléfono</span><span id="vistaTelefono">—</span></div>
+            </div>
+
+            <!-- Tu tabla original (se mantiene) -->
             <table class="table table-borderless">
                 <tr><td><strong>Nombre</strong></td><td id="vistaNombre">—</td></tr>
                 <tr><td><strong>Apellidos</strong></td><td id="vistaApellidos">—</td></tr>
                 <tr><td><strong>Email</strong></td><td id="vistaEmail">—</td></tr>
                 <tr><td><strong>Teléfono</strong></td><td id="vistaTelefono">—</td></tr>
             </table>
+
             <div class="d-flex justify-content-center gap-2 flex-wrap">
                 <button id="btnEditar" class="btn btn-dark">
                     <i class="bi bi-pencil-square"></i> Editar perfil
@@ -55,30 +76,35 @@
                 <i class="bi bi-pencil-square" style="font-size: 3rem; color: #B3FD14;"></i>
             </div>
             <h4 class="mb-3 text-center">Editar datos personales</h4>
+
             <form id="formPerfil">
                 <div class="mb-3">
-                    <label for="editNombre" class="form-label">Nombre</label>
+                    <label for="editNombre" class="form-label fw-bold">Nombre</label>
                     <input type="text" id="editNombre" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="editApellidos" class="form-label">Apellidos</label>
+                    <label for="editApellidos" class="form-label fw-bold">Apellidos</label>
                     <input type="text" id="editApellidos" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="editEmail" class="form-label">Email</label>
+                    <label for="editEmail" class="form-label fw-bold">Email</label>
                     <input type="email" id="editEmail" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="editTelefono" class="form-label">Teléfono</label>
+                    <label for="editTelefono" class="form-label fw-bold">Teléfono</label>
                     <input type="tel" id="editTelefono" class="form-control">
                 </div>
-                <div id="perfilFeedback" class="alert-success" style="display:none;"></div>
-                <div class="d-flex justify-content-center gap-2 mt-4">
+
+                <!-- Añadidos del segundo HTML -->
+                <div id="perfilSuccess" class="alert-success" style="display:none;"></div>
+                <div id="perfilFeedback" class="alert-danger" style="display:none;"></div>
+
+                <div class="d-flex justify-content-center gap-2 mt-4 flex-wrap">
                     <button type="submit" class="btn btn-dark">
                         <i class="bi bi-check-lg"></i> Guardar cambios
                     </button>
                     <button type="button" id="btnCancelar" class="btn btn-secondary">
-                        Cancelar
+                        <i class="bi bi-x-lg"></i> Cancelar
                     </button>
                 </div>
             </form>
@@ -87,7 +113,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 GFitApp &mdash; Todos los derechos reservados.</p>
+            <p>&copy; 2026 GFitApp — Todos los derechos reservados.</p>
         </div>
     </footer>
 

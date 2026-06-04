@@ -15,6 +15,7 @@ const urlsToCache = [
     "./image_Gfit_512.png"
 ];
 
+
 self.addEventListener("install", event => {
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache => {

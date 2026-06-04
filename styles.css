@@ -22,6 +22,7 @@ p {
   line-height: 1.6;
 }
 
+/* ================= NAV ================= */
 nav {
   background-color: #000;
   padding: 15px 25px;
@@ -78,17 +79,11 @@ nav a:hover {
 
 .nav-brand:hover {
   color: #B3FD14;
-  text-decoration: none;
   text-shadow: 0 0 30px rgba(179, 253, 20, 0.5);
 }
 
 .nav-brand:hover::after {
   transform: scaleX(1);
-}
-
-.nav-back:hover {
-  color: #B3FD14;
-  text-decoration: underline;
 }
 
 .nav-back {
@@ -97,11 +92,17 @@ nav a:hover {
   transition: color 0.2s ease;
 }
 
+.nav-back:hover {
+  color: #B3FD14;
+  text-decoration: underline;
+}
+
 .nav-menu-link {
   text-decoration: none;
   font-weight: bold;
   transition: color 0.2s ease;
-  display: block;
+  display: flex; /* ← añadido del segundo CSS */
+  align-items: center; /* ← añadido */
   padding: 8px 12px;
   position: relative;
 }
@@ -122,8 +123,9 @@ nav a:hover {
   transform: scaleX(1);
 }
 
+/* ================= FORM MAX ================= */
 .form-max {
-  max-width: 700px;
+  max-width: 800px; /* ← actualizado desde 700px */
 }
 
 .hamburguesa {
@@ -135,25 +137,25 @@ nav a:hover {
   line-height: 1;
 }
 
-/* ========== BURBUJA (subpages) ========== */
+/* ================= BURBUJA ================= */
 .burbuja {
   background: #fff;
   border-radius: 20px;
-  padding: 30px;
-  margin: 20px auto;
-  max-width: 900px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 45px; /* ← actualizado */
+  margin: 30px auto; /* ← actualizado */
+  max-width: 960px; /* ← actualizado */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08); /* ← actualizado */
 }
 
-/* ========== SECTION BLOCKS ========== */
+/* ================= SECTION BLOCKS ================= */
 .section-block {
-  padding: 80px 0;
+  padding: 120px 0; /* ← actualizado */
   position: relative;
   overflow: hidden;
 }
 
 .section-block .container {
-  max-width: 960px;
+  max-width: 1100px; /* ← actualizado */
 }
 
 .section-light {
@@ -168,14 +170,11 @@ nav a:hover {
   color: #bbb;
 }
 
-.section-dark .subtitulo {
-  color: #aaa;
-}
-
-/* ========== TYPOGRAPHY ========== */
+/* ================= TYPOGRAPHY ================= */
+/* Cambios solicitados */
 .titulo {
   font-weight: 700;
-  color: #B3FD14;
+  color: #1a1a1a; /* ← ahora negro */
   font-size: 2.2rem;
   margin-bottom: 12px;
   letter-spacing: -0.5px;
@@ -183,7 +182,7 @@ nav a:hover {
 
 .subtitulo {
   font-style: italic;
-  color: #000;
+  color: #B3FD14; /* ← ahora verde */
   font-weight: 600;
   font-size: 1rem;
   text-transform: uppercase;
@@ -191,7 +190,7 @@ nav a:hover {
   margin-bottom: 4px;
 }
 
-/* ========== IMAGES ========== */
+/* ================= IMAGES ================= */
 .img-wrapper {
   overflow: hidden;
   border-radius: 16px;
@@ -215,7 +214,7 @@ nav a:hover {
   box-shadow: 0 8px 30px rgba(0,0,0,0.4);
 }
 
-/* ========== BUTTONS ========== */
+/* ================= BUTTONS ================= */
 .botones {
   margin-top: 24px;
 }
@@ -238,45 +237,13 @@ nav a:hover {
   box-shadow: 0 4px 15px rgba(179, 253, 20, 0.3);
 }
 
-.btn-dark i,
-button.btn-dark i {
-  font-size: 1.15rem;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
-.btn-dark:hover,
-button.btn-dark:hover {
+.btn-dark:hover {
   background-color: #9ADC0A;
-  color: #1a1a1a;
   transform: translateY(-2px);
   box-shadow: 0 6px 25px rgba(179, 253, 20, 0.45);
 }
 
-.btn-secondary {
-  border-radius: 50px;
-  padding: 12px 28px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.btn-secondary:hover {
-  transform: translateY(-2px);
-}
-
-.link-negro {
-  color: #000;
-  margin-left: 15px;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.link-negro:hover {
-  text-decoration: underline;
-  color: #B3FD14;
-}
-
-/* ========== FOOTER ========== */
+/* ================= FOOTER ================= */
 footer {
   background-color: #000;
   color: #B3FD14;
@@ -285,24 +252,7 @@ footer {
   flex-shrink: 0;
 }
 
-footer a {
-  color: #B3FD14;
-  text-decoration: underline;
-  transition: color 0.2s ease;
-}
-
-footer a:hover {
-  color: #fff;
-}
-
-footer p {
-  color: #B3FD14;
-  margin: 0;
-  font-size: 0.9rem;
-  font-weight: 400;
-}
-
-/* ========== LOADING SPINNER ========== */
+/* ================= SPINNER ================= */
 .spinner {
   display: flex;
   justify-content: center;
@@ -327,7 +277,7 @@ footer p {
   to { transform: rotate(360deg); }
 }
 
-/* ========== FORM FEEDBACK ========== */
+/* ================= FORM FEEDBACK ================= */
 .alert-danger {
   background: #fce4e4;
   border: 1px solid #e74c3c;
@@ -335,8 +285,6 @@ footer p {
   padding: 10px 16px;
   border-radius: 10px;
   margin-top: 12px;
-  font-size: 0.95rem;
-  transition: opacity 0.3s ease;
 }
 
 .alert-success {
@@ -346,11 +294,9 @@ footer p {
   padding: 10px 16px;
   border-radius: 10px;
   margin-top: 12px;
-  font-size: 0.95rem;
-  transition: opacity 0.3s ease;
 }
 
-/* ========== CARDS ========== */
+/* ================= CARDS ================= */
 .card {
   transition: all 0.25s ease;
 }
@@ -360,109 +306,77 @@ footer p {
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    display: none;
-    background-color: #000;
-    padding: 20px;
-    margin-top: 10px;
-    border-radius: 10px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  #menu-toggle:checked + nav ul {
-    display: flex;
-    opacity: 1;
-  }
-
-  .hamburguesa {
-    display: block;
-  }
-
-  #menu-toggle {
-    display: none;
-  }
-}
-
-@media (min-width: 769px) {
-  nav ul {
-    display: flex !important;
-    flex-direction: row;
-    flex: 1;
-    background-color: transparent;
-    padding: 0 0 0 30px;
-  }
-
-  nav ul li:last-child {
-    margin-left: auto;
-  }
-
-  .hamburguesa,
-  #menu-toggle {
-    display: none;
-  }
-}
-
-#lista-cursos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 25px;
-  padding: 20px;
-}
-
-#lista-cursos .card {
-  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+/* ================= PANEL CARD (nuevo) ================= */
+.panel-card {
+  background: #fff;
   border-radius: 20px;
   border-left: 6px solid #B3FD14;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  padding: 25px 30px;
-  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-#lista-cursos .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+.panel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
 }
 
-#lista-cursos h4 {
-  font-size: 1.6rem;
+.panel-card .card-icon {
+  font-size: 2.2rem;
+  color: #B3FD14;
+}
+
+.panel-card h4 {
   font-weight: 700;
+  font-size: 1.3rem;
   color: #1a1a1a;
-  margin-bottom: 12px;
-  letter-spacing: 0.5px;
 }
 
-#lista-cursos p {
-  font-size: 1.1rem;
-  color: #000;
+.panel-card .progress {
+  height: 8px;
+  border-radius: 10px;
+  background: #e9ecef;
+}
+
+.panel-card .progress-bar {
+  background: #B3FD14;
+  border-radius: 10px;
+  transition: width 0.6s ease;
+}
+
+/* ================= FORMULARIOS (nuevo) ================= */
+.form-control, .form-select {
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 12px 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #B3FD14;
+  box-shadow: 0 0 0 3px rgba(179,253,20,0.2);
+}
+
+.form-label {
   font-weight: 600;
-  margin: 6px 0;
+  color: #1a1a1a;
+  margin-bottom: 6px;
 }
 
-#lista-cursos strong {
-  color: #000;
-  font-weight: 700;
+.table {
+  margin-bottom: 0;
 }
 
+.table td {
+  padding: 12px 8px;
+  vertical-align: middle;
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px){
-  .titulo {
-    font-size: 1.7rem;
-  }
-
-  p{
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 768px){
-  .section-block{
-    padding: 50px 15px;
-  }
-
-  .burbuja {
-    padding: 20px;
-    margin: 15px;
-  }
+  .titulo { font-size: 1.7rem; }
+  p { font-size: 0.95rem; }
+  .section-block { padding: 50px 15px; }
+  .burbuja { padding: 20px; margin: 15px; }
 }
