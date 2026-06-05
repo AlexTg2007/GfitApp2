@@ -2,7 +2,9 @@ const CACHE_NAME = "gfitapp-v3";
 
 self.addEventListener("install", event => {
   event.waitUntil(
+    
     caches.open(CACHE_NAME).then(cache => {
+      
       return cache.addAll([
         "./",
         "./index.html",
@@ -11,7 +13,7 @@ self.addEventListener("install", event => {
         "./historial.html",
         "./clases.html",
         "./manifest.json",
-        "./image_Gfit_180.png",
+        "./gfit_image_180.png",
         "./image_Gfit_192.png",
         "./image_Gfit_512.png"
       ]);

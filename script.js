@@ -4,6 +4,7 @@
    Menú hamburguesa: cerrar al hacer clic en un enlace
    ============================================ */
 document.addEventListener("click", function(e) {
+    
     const toggle = document.getElementById("menu-toggle");
     if (!toggle) return;
     const link = e.target.closest(".nav-menu-link");
@@ -17,6 +18,7 @@ document.addEventListener("click", function(e) {
    Mostrar / ocultar spinner de carga
    ============================================ */
 function mostrarSpinner(contenedor) {
+    
     if (!contenedor) return;
     contenedor.innerHTML = '<div class="spinner"><span>Cargando...</span></div>';
 }

@@ -23,6 +23,7 @@
 
 
     ],
+    
     "screenshots": [
   {
     "src": "./screenshots/home_wide.png",
@@ -30,6 +31,7 @@
     "type": "image/png",
     "form_factor": "wide"
   },
+  
   {
     "src": "./screenshots/home_mobile.png",
     "sizes": "720x1280",

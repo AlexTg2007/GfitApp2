@@ -1,9 +1,11 @@
 html {
+  
   scroll-padding-top: 80px;
   scroll-behavior: smooth;
 }
 
 body {
+  
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(180deg, #f3f5f7 0%, #e9ecef 100%);
